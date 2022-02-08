@@ -1,15 +1,22 @@
 let x;
 let p;
-let w;
+let w = [];
 function setup() {
   createCanvas(400, 400);
   p = new Player(200,200,10,10,"blue")
-  w = new Wall(100,100,300,20,"pink")
+  createWalls();
 }
 
 function draw() {
   background(102,255,255);
-  w.display()
+  for(var i =0 ; i < w.length ; i++){
+    w[i].display()
+  }
+  
   p.display();
   p.update();
+}
+function createWalls(){
+  w.push(new Wall(100,100,300,20,"pink"))
+  w.push(new Wall(100,300,300,20,"white"))
 }
