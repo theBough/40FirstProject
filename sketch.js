@@ -5,7 +5,6 @@ function setup() {
   createCanvas(400, 400);
   p = new Player(200,200,10,10,"blue")
   createWalls();
-  checkForCollission();
 }
 
 function draw() {
@@ -16,6 +15,7 @@ function draw() {
   
   p.display();
   p.update();
+  checkForCollission();
 }
 function createWalls(){
   w.push(new Wall(100,100,300,20,"pink"))
