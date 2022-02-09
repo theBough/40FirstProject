@@ -23,25 +23,25 @@ function createWalls(){
 }
 
 function checkForCollission() {
-  for (var i = 0; i < walls.length; i++) {
+  for (var i = 0; i < w.length; i++) {
 
     //check if we hit the left of any wall
-    if (p.y <= walls[i].y + walls[i].h && p.y + p.h >= walls[i].y && p.x <= walls[i].x + walls[i].w && p.x >= walls[i].x) {
+    if (p.y <= w[i].y + w[i].h && p.y + p.h >= w[i].y && p.x <= w[i].x + w[i].w && p.x >= w[i].x) {
       p.x += 5
     }//end if
 
     //check if we hit the right of any wall
-    if (p.y <= walls[i].y + walls[i].h && p.y + p.h >= walls[i].y && p.x + p.w >= walls[i].x && p.x <= walls[i].x + walls[i].w) {
+    if (p.y <= w[i].y + w[i].h && p.y + p.h >= w[i].y && p.x + p.w >= w[i].x && p.x <= w[i].x + w[i].w) {
       p.x -= 5
     }//end if
 
 
-    if (p.x <= walls[i].x + walls[i].w && p.x + p.w >= walls[i].x && p.y <= walls[i].y + walls[i].h && p.y >= walls[i].y) {
+    if (p.x <= w[i].x + w[i].w && p.x + p.w >= w[i].x && p.y <= w[i].y + w[i].h && p.y >= w[i].y) {
       p.y += 5;
     }//end if
 
     //check if we hit the top of any wall
-    if (p.x <= walls[i].x + walls[i].w && p.x + p.w >= walls[i].x && p.y + p.h >= walls[i].y && p.y <= walls[i].y + walls[i].h) {
+    if (p.x <= w[i].x + w[i].w && p.x + p.w >= w[i].x && p.y + p.h >= w[i].y && p.y <= w[i].y + w[i].h) {
       p.y -= 5;
     }//end if
 
