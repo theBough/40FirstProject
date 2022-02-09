@@ -28,23 +28,23 @@ function checkForCollission() {
     //check if we hit the left of any wall
     if (p.y <= walls[i].y + walls[i].h && p.y + p.h >= walls[i].y && p.x <= walls[i].x + walls[i].w && p.x >= walls[i].x) {
       p.x += 5
-    }
+    }//end if
 
     //check if we hit the right of any wall
     if (p.y <= walls[i].y + walls[i].h && p.y + p.h >= walls[i].y && p.x + p.w >= walls[i].x && p.x <= walls[i].x + walls[i].w) {
       p.x -= 5
-    }
+    }//end if
 
 
     if (p.x <= walls[i].x + walls[i].w && p.x + p.w >= walls[i].x && p.y <= walls[i].y + walls[i].h && p.y >= walls[i].y) {
       p.y += 5;
-    }
+    }//end if
 
     //check if we hit the top of any wall
     if (p.x <= walls[i].x + walls[i].w && p.x + p.w >= walls[i].x && p.y + p.h >= walls[i].y && p.y <= walls[i].y + walls[i].h) {
       p.y -= 5;
-    }
+    }//end if
 
-  }
-}
+  }//end for loop
+}//end function checkForCollission
 
