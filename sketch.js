@@ -1,11 +1,11 @@
 let x;
 let p;
 let w = [];
+let room = 1;
 function setup() {
   createCanvas(400, 400);
   p = new Player(200,200,10,10,"blue")
-  createWalls();
-  
+  drawRoomOne();
 }
 function draw() {
   background(102,255,255);
@@ -18,19 +18,27 @@ function draw() {
   checkForRoomChange();
   checkForCollission();
 }
+function whereTo(direction){
+  w = [];
+  switch(room){
+    case 1:
+      
+      break;
+    case 2:
+      
+      break;
+  }//end Switch
+  
+}//end whereTo
 function checkForRoomChange(){
   //this is going to check if the player hits
   //the edge of the canvas.
   if(p.y < 0){
     //The player has gone off the top of the canvas
     p.y = height;
+    whereTo("up");
   }//end if
 }//end checkForRoomChange
-function createWalls(){
-  w.push(new Wall(100,100,300,20,"pink"))
-  w.push(new Wall(100,300,300,20,"white"))
-}
-
 function checkForCollission() {
   for (var i = 0; i < w.length; i++) {
 
