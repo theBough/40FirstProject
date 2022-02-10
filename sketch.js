@@ -22,6 +22,24 @@ function whereTo(direction){
   w = [];
   switch(room){
     case 1:
+      //player was in room 1
+      //check to see what direction they went.
+      switch(direction){
+        case "up":
+          //The player is now in Room 2
+          room  = 2;
+          drawRoomTwo();
+          break;
+        case "down":
+          
+          break;
+        case "left":
+          
+          break;
+        case "right":
+          
+          break;
+      }
       
       break;
     case 2:
