@@ -19,6 +19,9 @@ function draw() {
   checkForCollission();
 }
 function whereTo(direction){
+  //receives the direction the player was travelling
+  //checks to see what room the player was in, and then
+  //determines what room to "draw"
   w = [];
   switch(room){
     case 1:
