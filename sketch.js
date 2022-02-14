@@ -19,9 +19,6 @@ function draw() {
   checkForCollission();
 }
 function whereTo(direction){
-  //receives the direction the player was travelling
-  //checks to see what room the player was in, and then
-  //determines what room to "draw"
   w = [];
   switch(room){
     case 1:
@@ -42,10 +39,19 @@ function whereTo(direction){
         case "right":
           
           break;
-      }
+      }//end switch for the direction
       
       break;
     case 2:
+      //the player is in room 2
+      //use a switch statement to determine
+      //which room to draw.
+      switch(direction){
+        case "down":
+          //draw the walls for room 1
+          drawRoomOne();
+        break;
+      }//end switch for switch
       
       break;
   }//end Switch
@@ -58,6 +64,12 @@ function checkForRoomChange(){
     //The player has gone off the top of the canvas
     p.y = height;
     whereTo("up");
+  }//end if
+  
+  if(p.y > height){
+    //The player has gone passt the bottom of the canvas
+    p.y = 0;
+    whereTo("down");
   }//end if
 }//end checkForRoomChange
 function checkForCollission() {
