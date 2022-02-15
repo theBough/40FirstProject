@@ -18,60 +18,65 @@ function draw() {
   checkForRoomChange();
   checkForCollission();
 }
+function leavingRoomOne(direction){
+  //determine what room to draw after leaving room 1.
+  switch(direction){
+    case "up":
+      //The player has travelled up, and is now in room 2
+      drawRoomTwo();
+      break;
+    case "right":
+      drawRoomThree();
+      break;
+    case "down":
+      drawRoomFour();
+      break;
+    case "left":
+      drawRoomFive();
+      break;
+  }//end switch
+}
+function leavingRoomTwo(direction){
+  
+}
+function leavingRoomThree(direction){
+  
+}
+function leavingRoomFour(direction){
+  
+}
+function leavingRoomFive(direction){
+  switch(direction){
+      case "right":
+        drawRoomOne();
+      break;
+  }//end switch
+}//end leavingRoomFive.
 function whereTo(direction){
+  //each time you add a room to your game.
+  //you will need to add a "case" to the switch.
+  //you will also have to typ up 
+  //a new "leavingRoom...." function
   w = [];
   switch(room){
     case 1:
-      //player was in room 1
-      //check to see what direction they went.
-      switch(direction){
-        case "up":
-          //The player is now in Room 2
-          room  = 2;
-          drawRoomTwo();
-          break;
-        case "down":
-          
-          break;
-        case "left":
-          
-          break;
-        case "right":
-          
-          break;
-      }//end switch for the direction
-      
+      leavingRoomOne(direction);      
       break;
     case 2:
-      //the player is in room 2
-      //use a switch statement to determine
-      //which room to draw.
-      switch(direction){
-        case "down":
-          //draw the walls for room 1
-          drawRoomOne();
-        break;
-      }//end switch for switch
-      
+      leavingRoomTwo(direction)
+      break;
+    case 3:
+      leavingRoomThree(direction);      
+      break;
+    case 4:
+      leavingRoomFour(direction)
+      break;
+    case 5:
+      leavingRoomFive(direction)
       break;
   }//end Switch
-  
 }//end whereTo
-function checkForRoomChange(){
-  //this is going to check if the player hits
-  //the edge of the canvas.
-  if(p.y < 0){
-    //The player has gone off the top of the canvas
-    p.y = height;
-    whereTo("up");
-  }//end if
-  
-  if(p.y > height){
-    //The player has gone passt the bottom of the canvas
-    p.y = 0;
-    whereTo("down");
-  }//end if
-}//end checkForRoomChange
+
 function checkForCollission() {
   for (var i = 0; i < w.length; i++) {
 
