@@ -9,8 +9,13 @@ function drawRoomTwo(){
   w.push(new Wall(100,100,300,20,"red"))
 }//end drawRoomTwo
 function drawRoomThree(){
-  
+  room =3;
 }//end drawRoomTwo
+function drawRoomFive(){
+  room = 5;
+   w.push(new Wall(100,100,300,20,"cyan"))
+  w.push(new Wall(100,300,300,20,"cyan"))
+}//end drawRoomOne
 function checkForRoomChange(){
   //this is going to check if the player hits
   //the edge of the canvas.
