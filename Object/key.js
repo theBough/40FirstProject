@@ -12,7 +12,14 @@ function Key(x,y,w,h){
   this.img = loadImage("object/key.png")
   
   this.display = function(){
-    image(this.img, this.x, this.y);
+    if(room == 2){
+      this.show = true;
+    }
+    this.img.resize(this.w, this.h);
+    if(this.show){
+      image(this.img, this.x, this.y);  
+    }
+    
   }//end display
   
 }//end Key
