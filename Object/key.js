@@ -1,4 +1,4 @@
-function Key(x,y,w,h){
+function Key(x, y, w, h) {
   this.x = x;
   this.y = y;
   this.w = w;
@@ -8,18 +8,11 @@ function Key(x,y,w,h){
   this.have = false;
   //this is a boolean that we will use to toggle
   //the visibility on and off
-  this.show = false;
-  this.img = loadImage("object/key.png")
-  
-  this.display = function(){
-    if(room == 2){
-      this.show = true;
-    }
-    this.img.resize(this.w, this.h);
-    if(this.show){
-      image(this.img, this.x, this.y);  
-    }
-    
-  }//end display
-  
-}//end Key
+  this.img = loadImage("object/key.png");
+  this.display = function () {
+    if (room == 2) {
+      this.img.resize(this.w, this.h);
+      image(this.img, this.x, this.y);
+    }//end if
+  }; //end display
+} //end Key
