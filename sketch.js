@@ -7,7 +7,7 @@ let k;
 function setup() {
   createCanvas(400, 400);
   p = new Player(200,200,10,10,"blue");
-  k = new Key(300,250, 10,10);
+  k = new Key(300,250, 10,10,2);
   drawRoomOne();
 }
 function draw() {
@@ -18,6 +18,7 @@ function draw() {
   p.display();
   p.update();
   k.display();
+  k.keyCollision();
   checkForRoomChange();
   checkForCollission();
 }
