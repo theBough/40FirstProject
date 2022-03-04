@@ -8,11 +8,15 @@ function Key(x, y, wid, h, r) {
   //This is a boolean that determines if the player
   //has the key
   this.have = false;
+  this.show = true
   //this is a boolean that we will use to toggle
   //the visibility on and off
   this.img = loadImage("object/key.png");
+  
   this.display = function () {
-    if (room == this.r || this.have) {
+    //console.log(rooms[row][column])
+    //console.log(this.r)
+    if (this.show &&( this.have || this.r === rooms[row][column])) {
       this.img.resize(this.w, this.h);
       image(this.img, this.x, this.y);
     } //end if
@@ -57,16 +61,18 @@ function Key(x, y, wid, h, r) {
       this.have = true;
     }
      //Check if the key hits a gate.
-    if (
+   if (
      w[0].y <= this.y + this.h &&
       w[0].y + w[0].h >= this.y &&
       w[0].x + w[0].w >= this.x &&
       w[0].x <= this.x + this.w
     ) {
       gateOneClosed = false;
+     //k.show = false;
       //if it hits the gate, redraw Room 1
-      drawRoomOne();
+      
     }
+    
   };
   
 } //end Key
