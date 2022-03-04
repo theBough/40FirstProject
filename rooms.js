@@ -1,61 +1,82 @@
 /*If you have already started designing your rooms, 
-be sure to just copy the drawRoom() function.
+be sure to just copy the fillRoom() function.
 The function calls in the "rooms" array, need to match the 
 names of your draw room function names.
 */
-function drawRoom() {
+function fillRooms() {
+  /*This will fill an array
+  with function calls of our rooms
+  */
+
   rooms = [
-    [blankRoom, dragonRoom, blankRoom],
-    [keyRoom, startRoom, swordRoom],
-    [blankRoom, bossRoom, blankRoom],
+    [drawRoomTwo, keyRoom, drawRoomThree],
+    [drawRoomTwo, startRoom, drawRoomThree],
   ];
-} //end function
+    
+} //end fillsrooms
 
 var startRoom = function () {
   w = [];
-  w.push(new Wall(0, 0, 150, 20, "#b3b300"));
-  w.push(new Wall(width - 150, 0, 150, 20, "#b3b300"));
-  w.push(new Wall(0, 0, 20, 150, "#b3b300"));
-  w.push(new Wall(0, height - 150, 20, 150, "#b3b300"));
-  w.push(new Wall(0, height - 20, 150, 20, "#b3b300"));
-  w.push(new Wall(width - 150, height - 20, 150, 20, "#b3b300"));
-  w.push(new Wall(width - 20, 0, 20, 150, "#b3b300"));
-  w.push(new Wall(width - 20, height - 150, 20, 150, "#b3b300"));
-};
-var bossRoom = function () {
-  w = [];
-  w.push(new Wall(0, 0, 150, 20, "#b3b300"));
-  w.push(new Wall(width - 150, 0, 150, 20, "#b3b300"));
-  w.push(new Wall(0, 0, 20, height, "#b3b300"));
-  w.push(new Wall(0, height - 20, width, 20, "#b3b300"));
-  w.push(new Wall(width - 20, 0, 20, height, "#b3b300"));
 
-};
-var swordRoom = function () {
+  if (gateOneClosed) {
+    w.push(new Wall(50, 50, 30, 30, "white"));
+  }
+
+  //roof left
+  w.push(new Wall(0, 0, 150, 10, "#262cc9"));
+  //roof right
+  w.push(new Wall(170, 0, 300, 10, "#262cc9"));
+  //left wall
+  //w.push(new Wall(0,0,10,400,"#262cc9"))
+  //right Wall
+  w.push(new Wall(width - 10, 0, 10, 150, "#262cc9"));
+  //right Wall
+  w.push(new Wall(width - 10, 300, 10, 150, "#262cc9"));
+  //right Wall
+  w.push(new Wall(width - 150, 150, 150, 10, "#262cc9"));
+  w.push(new Wall(width - 150, 300, 150, 10, "#262cc9"));
+  w.push(new Wall(width - 150, 150, 10, 150, "#262cc9"));
+  //floor
+  w.push(new Wall(0, height - 10, width, 10, "#262cc9"));
+}; //end drawRoomOne
+var drawRoomTwo = function () {
+
   w = [];
-  w.push(new Wall(0, 0, width, 20, "#b3b300"));
-  w.push(new Wall(0, 0, 20, 150, "#b3b300"));
-  w.push(new Wall(0, height - 150, 20, 150, "#b3b300"));
-  w.push(new Wall(0, height - 20, width, 20, "#b3b300"));
-  w.push(new Wall(width - 20, 0, 20, height, "#b3b300"));
-};
+  w.push(new Wall(100, 100, 300, 20, "red"));
+}; //end drawRoomTwo
+var drawRoomThree = function () {
+  
+}; //end drawRoomTwo
 var keyRoom = function () {
   w = [];
-  w.push(new Wall(0, 0, width, 20, "#b3b300"));
-  w.push(new Wall(0, 0, 20, height, "#b3b300"));
-  w.push(new Wall(0, height - 20, width, 20, "#b3b300"));
-  w.push(new Wall(width - 20, 0, 20, 150, "#b3b300"));
-  w.push(new Wall(width - 20, height - 150, 20, 150, "#b3b300"));
-};
-var dragonRoom = function () {
-  w = [];
-  w.push(new Wall(0, 0, width, 20, "#b3b300"));
-  w.push(new Wall(0, 0, 20, height, "#b3b300"));
-  w.push(new Wall(0, height - 20, 150, 20, "#b3b300"));
-  w.push(new Wall(width - 150, height - 20, 150, 20, "#b3b300"));
-  w.push(new Wall(width - 20, 0, 20, height, "#b3b300"));
-};
-var blankRoom = function () {
-  w = [];
-  w.push(new Wall(75, 75, 200, 200, "pink"));
-}; //end blankRoom
+  w.push(new Wall(0, height - 10, 150, 10, "#262cc9"));
+  //roof right
+  w.push(new Wall(170, height - 10, 300, 10, "#262cc9"));
+  w.push(new Wall(0, 0, width, 10, "#262cc9"));
+  w.push(new Wall(0, 0, 10, height, "#262cc9"));
+  w.push(new Wall(width - 10, 0, 10, height, "#262cc9"));
+}; //end drawRoomOne
+function checkForRoomChange() {
+  //this is going to check if the player hits
+  //the edge of the canvas.
+  if (p.y + p.h < 0) {
+    //The player has gone off the top of the canvas
+    p.y = height;
+    row -= 1;
+  } //end if
+  if (p.y > height) {
+    //The player has gone passt the bottom of the canvas
+    p.y = 0;
+    row += 1;
+  } //end if
+  if (p.x > width) {
+    //The player has gone passt the right of the canvas
+    p.x = 0;
+    column += 1;
+  } //end if
+  if (p.x + p.w < 0) {
+    //The player has gone passt the left of the canvas
+    p.x = width;
+    column -= 1;
+  } //end if
+} //end checkForRoomChange
