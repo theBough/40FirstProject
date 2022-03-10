@@ -27,7 +27,8 @@ function Key(x, y, wid, h, r) {
       p.y <= this.y + this.h &&
       p.y + p.h >= this.y &&
       p.x <= this.x + this.w &&
-      p.x >= this.x
+      p.x >= this.x &&
+      this.r === rooms[row][column]
     ) {
       this.have = true;
     }
@@ -37,7 +38,8 @@ function Key(x, y, wid, h, r) {
       p.y <= this.y + this.h &&
       p.y + p.h >= this.y &&
       p.x + p.w >= this.x &&
-      p.x <= this.x + this.w
+      p.x <= this.x + this.w &&
+      this.r === rooms[row][column]
     ) {
       this.have = true;
     }
@@ -46,7 +48,8 @@ function Key(x, y, wid, h, r) {
       p.x <= this.x + this.w &&
       p.x + p.w >= this.x &&
       p.y <= this.y + this.h &&
-      p.y >= this.y
+      p.y >= this.y &&
+      this.r === rooms[row][column]
     ) {
       this.have = true;
     }
@@ -56,7 +59,8 @@ function Key(x, y, wid, h, r) {
       p.x <= this.x + this.w &&
       p.x + p.w >= this.x &&
       p.y + p.h >= this.y &&
-      p.y <= this.y + this.h
+      p.y <= this.y + this.h &&
+      this.r === rooms[row][column]
     ) {
       this.have = true;
     }
